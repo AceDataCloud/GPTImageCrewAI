@@ -4,13 +4,20 @@
 
 ## 安装
 
-源码/预览包正在准备，尚未PyPI发布、尚未进入CrewAI官方Tools/AMP目录。先检查[源码PR](https://github.com/AceDataCloud/GPTImageCrewAI/pulls)，用审阅后的固定完整SHA安装，不把仓库或本地导入当官方收录：
+已有[GitHub预览wheel/sdist](https://github.com/AceDataCloud/GPTImageCrewAI/releases/tag/v0.1.0-preview.1)，源码仍在审阅；尚未PyPI发布、尚未进入CrewAI官方Tools/AMP目录。先检查[源码PR](https://github.com/AceDataCloud/GPTImageCrewAI/pulls)，用审阅后的固定完整SHA安装，不把仓库或本地导入当官方收录：
 
 ```bash
-uv add 'crewai-gpt-image @ git+https://github.com/AceDataCloud/GPTImageCrewAI.git@REVIEWED_COMMIT'
+uv add 'crewai-gpt-image @ git+https://github.com/AceDataCloud/GPTImageCrewAI.git@ec567ac75a2b8d0a21cbd3916eafe9b84430f9ad'
 ```
 
 正式PyPI发布后目标为 `uv add crewai-gpt-image`，目前不要假设可用。Python3.10–3.13；Intel macOS可能缺CrewAI强制依赖lancedb wheel，正式使用选择受支持Linux，不跳依赖伪装正常安装。
+
+
+```bash
+uv add 'crewai-gpt-image @ https://github.com/AceDataCloud/GPTImageCrewAI/releases/download/v0.1.0-preview.1/crewai_gpt_image-0.1.0-py3-none-any.whl#sha256=58c3dca3cca31d3243e365dfe42486aeac49d6e61aff7053d50a9b27c90c5619'
+```
+
+预览wheel来自同一固定源码SHA，URL强制SHA256校验；若附件被替换必须摘要失败。release页面/tag仅提供信息，不作信任锚。
 
 ## 注册登录、General application和专用Token
 
