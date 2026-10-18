@@ -1,0 +1,23 @@
+{
+  "repo": "GPTImageCrewAI",
+  "slug": "gpt-image",
+  "package": "crewai-gpt-image",
+  "module": "gpt_image_crewai",
+  "generate_class": "GPTImageGenerateImageTool",
+  "retrieve_class": "GPTImageRetrieveTaskTool",
+  "media": "image",
+  "generation_path": "/openai/images/generations",
+  "task_path": "/openai/tasks",
+  "dify_repo": "GPTImageDify",
+  "dify_sha": "910a7d746581a42dab5fe88c16b3134a44b2db1b",
+  "contract_key": "gpt_image_generate_image",
+  "example_model": "gpt-image-2",
+  "example_input": {
+    "model": "gpt-image-2",
+    "prompt": "A red apple on a plain white background",
+    "size": "1024x1024",
+    "quality": "low",
+    "n": 1
+  },
+  "name": "GPT Image"
+}
