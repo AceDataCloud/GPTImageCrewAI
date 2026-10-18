@@ -6,7 +6,7 @@ Independent native **GPT Image** image tools for CrewAI. Provided by **Ace Data 
 
 ## 1. Install the correct service package
 
-Review-preview source and a [GitHub wheel/sdist prerelease](https://github.com/AceDataCloud/GPTImageCrewAI/releases/tag/v0.1.0-preview.1) are available; implementation remains under review. **Not yet PyPI-published or listed in the official CrewAI / AMP catalog.** The source version below is pinned to `c39dcdb493a5f96fc53f05f5d4cfa4f081e740f5`. Do not treat a repository as an official listing.
+Review-preview source and a [GitHub wheel/sdist prerelease](https://github.com/AceDataCloud/GPTImageCrewAI/releases/tag/v0.1.0-preview.2) are available; implementation remains under review. **Not yet PyPI-published or listed in the official CrewAI / AMP catalog.** The source version below is pinned to `c39dcdb493a5f96fc53f05f5d4cfa4f081e740f5`. Do not treat a repository as an official listing.
 
 ```bash
 uv add 'crewai-gpt-image @ git+https://github.com/AceDataCloud/GPTImageCrewAI.git@c39dcdb493a5f96fc53f05f5d4cfa4f081e740f5'
@@ -16,10 +16,10 @@ The pinned SHA is the version published in the review preview; inspect [source P
 
 
 ```bash
-uv add 'crewai-gpt-image @ https://github.com/AceDataCloud/GPTImageCrewAI/releases/download/v0.1.0-preview.1/crewai_gpt_image-0.1.0-py3-none-any.whl#sha256=58c3dca3cca31d3243e365dfe42486aeac49d6e61aff7053d50a9b27c90c5619'
+uv add 'crewai-gpt-image @ https://github.com/AceDataCloud/GPTImageCrewAI/releases/download/v0.1.0-preview.2/crewai_gpt_image-0.1.0-py3-none-any.whl#sha256=8cf1f81a86eb7bc815cdfebac325a0306b07d364623e6656c821ce729b7e4651'
 ```
 
-The immutable preview.1 wheel was built from original source `ec567ac75a2b8d0a21cbd3916eafe9b84430f9ad`. The recommended source install above points to the newer terminal-state fix `c39dcdb493a5f96fc53f05f5d4cfa4f081e740f5`; these are separate artifacts. SHA256 must match; the mutable release page/tag is informational, not a trust anchor.
+The fixed preview.2 wheel was built from the same terminal-state-verified source `c39dcdb493a5f96fc53f05f5d4cfa4f081e740f5` used by the pinned source install. Historical preview.1 is retained unchanged. SHA256 must match; the mutable release page/tag is informational, not a trust anchor.
 
 ## 2. Register / sign in and get your own API Token
 
@@ -115,4 +115,4 @@ Provided prompts/references and the consumer Token are sent to `api.acedata.clou
 
 Development: `uv sync --group dev`, `uv run pytest`, `uv run ruff check .`, `uv build`. Paid HTTP is mocked in tests; native Agent/Task/Crew cycles use a deterministic local model fixture. See `tests/contract-source.json` for immutable service contract provenance and `tests/live-readonly-evidence.json` when an old-task check is available. No new paid request runs in CI.
 
-Latest source includes explicit failed-state handling before finished_at; older preview.1 is retained as an immutable historical artifact. Prefer the pinned current source for this fix.
+The pinned source and preview.2 include explicit failed-state handling before finished_at. Historical preview.1 remains unchanged; use the pinned fixed version above.

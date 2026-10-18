@@ -4,7 +4,7 @@
 
 ## 安装
 
-已有[GitHub预览wheel/sdist](https://github.com/AceDataCloud/GPTImageCrewAI/releases/tag/v0.1.0-preview.1)，源码仍在审阅；尚未PyPI发布、尚未进入CrewAI官方Tools/AMP目录。先检查[源码PR](https://github.com/AceDataCloud/GPTImageCrewAI/pulls)，用审阅后的固定完整SHA安装，不把仓库或本地导入当官方收录：
+已有[GitHub预览wheel/sdist](https://github.com/AceDataCloud/GPTImageCrewAI/releases/tag/v0.1.0-preview.2)，源码仍在审阅；尚未PyPI发布、尚未进入CrewAI官方Tools/AMP目录。先检查[源码PR](https://github.com/AceDataCloud/GPTImageCrewAI/pulls)，用审阅后的固定完整SHA安装，不把仓库或本地导入当官方收录：
 
 ```bash
 uv add 'crewai-gpt-image @ git+https://github.com/AceDataCloud/GPTImageCrewAI.git@c39dcdb493a5f96fc53f05f5d4cfa4f081e740f5'
@@ -14,10 +14,10 @@ uv add 'crewai-gpt-image @ git+https://github.com/AceDataCloud/GPTImageCrewAI.gi
 
 
 ```bash
-uv add 'crewai-gpt-image @ https://github.com/AceDataCloud/GPTImageCrewAI/releases/download/v0.1.0-preview.1/crewai_gpt_image-0.1.0-py3-none-any.whl#sha256=58c3dca3cca31d3243e365dfe42486aeac49d6e61aff7053d50a9b27c90c5619'
+uv add 'crewai-gpt-image @ https://github.com/AceDataCloud/GPTImageCrewAI/releases/download/v0.1.0-preview.2/crewai_gpt_image-0.1.0-py3-none-any.whl#sha256=8cf1f81a86eb7bc815cdfebac325a0306b07d364623e6656c821ce729b7e4651'
 ```
 
-历史preview.1 wheel来自原源码ec567ac75a2b8d0a21cbd3916eafe9b84430f9ad，上方推荐源码为含终态修复的新SHAc39dcdb493a5f96fc53f05f5d4cfa4f081e740f5，二者分别记录，URL强制SHA256校验；若附件被替换必须摘要失败。release页面/tag仅提供信息，不作信任锚。
+修复版preview.2 wheel与上方固定源码来自同一终态修复SHA c39dcdb493a5f96fc53f05f5d4cfa4f081e740f5，历史preview.1保留不变，URL强制SHA256校验；若附件被替换必须摘要失败。release页面/tag仅提供信息，不作信任锚。
 
 ## 注册登录、General application和专用Token
 
@@ -110,4 +110,4 @@ uv run python examples/query_existing.py YOUR_EXISTING_TASK_ID
 
 开发：uv sync --group dev；uv run pytest；uv run ruff check .；uv build。测试Mock收费HTTP，真实Agent/Task/Crew使用本地确定性模型，不冒充真实AI决策。合同固定来源见tests/contract-source.json。
 
-最新固定源码已修正finished_at写入前的明确失败判断；旧preview.1作为历史不变附件保留，建议用当前固定源码取得修复。
+当前固定源码及preview.2均已修正finished_at写入前的明确失败判断；旧preview.1保留不变，请使用上方固定修复版。
