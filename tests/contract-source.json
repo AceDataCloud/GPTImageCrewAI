@@ -1,0 +1,119 @@
+{
+  "source_url": "https://github.com/AceDataCloud/GPTImageDify/blob/910a7d746581a42dab5fe88c16b3134a44b2db1b/tools/api_contracts.py",
+  "source_sha": "910a7d746581a42dab5fe88c16b3134a44b2db1b",
+  "as_of": "2026-10-18",
+  "generation": {
+    "type": "object",
+    "required": [
+      "prompt",
+      "model"
+    ],
+    "properties": {
+      "prompt": {
+        "type": "string"
+      },
+      "background": {
+        "enum": [
+          "transparent",
+          "opaque",
+          "auto"
+        ],
+        "type": "string"
+      },
+      "model": {
+        "enum": [
+          "dall-e-2",
+          "dall-e-3",
+          "gpt-image-1",
+          "gpt-image-1.5",
+          "gpt-image-2",
+          "gpt-image-2.5-flare",
+          "gpt-image-2.5-flare:official",
+          "gpt-image-2.5-sunburst",
+          "gpt-image-2.5-sunburst:official",
+          "gpt-image-2:reverse",
+          "gpt-image-2:official",
+          "nano-banana",
+          "nano-banana-2-lite",
+          "nano-banana-2",
+          "nano-banana-pro"
+        ],
+        "type": "string"
+      },
+      "moderation": {
+        "enum": [
+          "low",
+          "auto"
+        ],
+        "type": "string"
+      },
+      "n": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10
+      },
+      "output_compression": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 100
+      },
+      "output_format": {
+        "enum": [
+          "png",
+          "jpeg",
+          "webp"
+        ],
+        "type": "string"
+      },
+      "partial_images": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "size": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "pattern": "^(auto|\\d+x\\d+)$"
+      },
+      "quality": {
+        "enum": [
+          "auto",
+          "high",
+          "medium",
+          "low",
+          "hd",
+          "standard"
+        ],
+        "type": "string"
+      },
+      "response_format": {
+        "enum": [
+          "url",
+          "b64_json"
+        ],
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "style": {
+        "enum": [
+          "vivid",
+          "natural"
+        ],
+        "type": "string"
+      },
+      "callback_url": {
+        "type": "string"
+      },
+      "async": {
+        "type": "boolean"
+      }
+    }
+  },
+  "request_path": "/openai/images/generations",
+  "task_path": "/openai/tasks",
+  "tool_scope": "native subset; schema deliberately excludes callback/web search/admin/advanced actions not documented in this package"
+}
