@@ -2,22 +2,23 @@
 
 由 **Ace Data Cloud** 提供，不是 GPT Image 或 CrewAI 官方产品。独立品牌工具包，不是通用服务合集。[English](../README.md)
 
-## 安装
+## 安装正式版本
 
-已有[GitHub预览wheel/sdist](https://github.com/AceDataCloud/GPTImageCrewAI/releases/tag/v0.1.0-preview.2)，源码仍在审阅；尚未PyPI发布、尚未进入CrewAI官方Tools/AMP目录。先检查[源码PR](https://github.com/AceDataCloud/GPTImageCrewAI/pulls)，用审阅后的固定完整SHA安装，不把仓库或本地导入当官方收录：
-
-```bash
-uv add 'crewai-gpt-image @ git+https://github.com/AceDataCloud/GPTImageCrewAI.git@c39dcdb493a5f96fc53f05f5d4cfa4f081e740f5'
-```
-
-正式PyPI发布后目标为 `uv add crewai-gpt-image`，目前不要假设可用。Python3.10–3.13；Intel macOS可能缺CrewAI强制依赖lancedb wheel，正式使用选择受支持Linux，不跳依赖伪装正常安装。
-
+Ace维护的独立 **GPTImage** CrewAI原生工具已合并main并发布 **0.1.0**。这不是CrewAI/AMP官方目录收录，PyPI尚未发布；先用公开wheel并校验固定SHA256：
 
 ```bash
-uv add 'crewai-gpt-image @ https://github.com/AceDataCloud/GPTImageCrewAI/releases/download/v0.1.0-preview.2/crewai_gpt_image-0.1.0-py3-none-any.whl#sha256=8cf1f81a86eb7bc815cdfebac325a0306b07d364623e6656c821ce729b7e4651'
+uv add 'crewai-gpt-image @ https://github.com/AceDataCloud/GPTImageCrewAI/releases/download/v0.1.0/crewai_gpt_image-0.1.0-py3-none-any.whl#sha256=6051bd70f833e1c05dc9bae405a23ee6316818efc50deeb38e95a4926b37068e'
 ```
 
-修复版preview.2 wheel与上方固定源码来自同一终态修复SHA c39dcdb493a5f96fc53f05f5d4cfa4f081e740f5，历史preview.1保留不变，URL强制SHA256校验；若附件被替换必须摘要失败。release页面/tag仅提供信息，不作信任锚。
+或安装合并后的固定源码：
+
+```bash
+uv add 'crewai-gpt-image @ git+https://github.com/AceDataCloud/GPTImageCrewAI.git@0eea3c3c57067d82680ba54680db29ddce08eb51'
+```
+
+[正式发行](https://github.com/AceDataCloud/GPTImageCrewAI/releases/tag/v0.1.0) · [合并源码](https://github.com/AceDataCloud/GPTImageCrewAI/commit/0eea3c3c57067d82680ba54680db29ddce08eb51)。tag/页面只提供信息，源码SHA或wheel摘要才绑定实际字节。旧preview保留不变，不再推荐。共享PyPI新建项目配额恢复、现有发布身份成功上传并registry读回后，才可使用普通 `uv add crewai-gpt-image`，目前不冒称可用。
+
+Python3.10–3.13。Linux完整依赖/测试/干净wheel已通过；Intel macOS可能缺lancedb wheel，正式使用选择支持Linux，不跳依赖冒充完整安装。
 
 ## 注册登录、General application和专用Token
 
@@ -109,5 +110,3 @@ uv run python examples/query_existing.py YOUR_EXISTING_TASK_ID
 代码免费，媒体与配置的LLM按当前价格计费；无支付处理器/自动收费重试/fallback。原Credits费用按当前应用套餐折扣，不硬编码旧美元换算。不把安装/测试数当注册或收入。prompt/参考素材与Token仅发往api.acedata.cloud；本包无追踪，CrewAI/LLM设置另算。[隐私](../PRIVACY.md) · [源码](https://github.com/AceDataCloud/GPTImageCrewAI) · [反馈](https://github.com/AceDataCloud/GPTImageCrewAI/issues) · dev@acedata.cloud
 
 开发：uv sync --group dev；uv run pytest；uv run ruff check .；uv build。测试Mock收费HTTP，真实Agent/Task/Crew使用本地确定性模型，不冒充真实AI决策。合同固定来源见tests/contract-source.json。
-
-当前固定源码及preview.2均已修正finished_at写入前的明确失败判断；旧preview.1保留不变，请使用上方固定修复版。

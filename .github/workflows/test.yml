@@ -22,3 +22,8 @@ jobs:
           uv venv /tmp/service-wheel --python ${{ matrix.python }}
           uv pip install --python /tmp/service-wheel/bin/python dist/crewai_gpt_image-0.1.0-py3-none-any.whl
           /tmp/service-wheel/bin/python -c 'from gpt_image_crewai import GPTImageGenerateImageTool, GPTImageRetrieveTaskTool; t = GPTImageRetrieveTaskTool(api_key="fixture"); assert "fixture" not in str(t.model_dump()); assert "task_id" in t.args_schema.model_fields; print("clean wheel import and schema passed")'
+      - name: Install and inspect public stable wheel
+        run: |
+          uv venv /tmp/public-service-wheel --python ${{ matrix.python }}
+          uv pip install --python /tmp/public-service-wheel/bin/python 'crewai-gpt-image @ https://github.com/AceDataCloud/GPTImageCrewAI/releases/download/v0.1.0/crewai_gpt_image-0.1.0-py3-none-any.whl#sha256=6051bd70f833e1c05dc9bae405a23ee6316818efc50deeb38e95a4926b37068e'
+          /tmp/public-service-wheel/bin/python -c 'from gpt_image_crewai import GPTImageRetrieveTaskTool; from importlib.metadata import version; t=GPTImageRetrieveTaskTool(api_key="fixture"); assert version("crewai-gpt-image")=="0.1.0"; assert "fixture" not in str(t.model_dump()); assert "task_id" in t.args_schema.model_fields; print("public stable wheel full-install verified")'
