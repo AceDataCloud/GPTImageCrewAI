@@ -6,7 +6,13 @@ Independent native **GPT Image** image tools for CrewAI. Provided by **Ace Data 
 
 ## 1. Install the stable release
 
-The Ace-maintained **GPTImage** native CrewAI tools are merged on main and released as **0.1.0**. This is a standalone service package. It is **not an official CrewAI/AMP catalog listing**, and no PyPI publication is claimed yet. Install the public wheel with its exact SHA256:
+The independently maintained **GPT Image** tools are published as [0.1.0 on PyPI](https://pypi.org/project/crewai-gpt-image/0.1.0/). Install by package name:
+
+```bash
+uv add crewai-gpt-image==0.1.0
+```
+
+The same release is available as a SHA256-bound GitHub wheel:
 
 ```bash
 uv add 'crewai-gpt-image @ https://github.com/AceDataCloud/GPTImageCrewAI/releases/download/v0.1.0/crewai_gpt_image-0.1.0-py3-none-any.whl#sha256=6051bd70f833e1c05dc9bae405a23ee6316818efc50deeb38e95a4926b37068e'
@@ -18,7 +24,7 @@ Or install the exact merged source:
 uv add 'crewai-gpt-image @ git+https://github.com/AceDataCloud/GPTImageCrewAI.git@0eea3c3c57067d82680ba54680db29ddce08eb51'
 ```
 
-[Stable release](https://github.com/AceDataCloud/GPTImageCrewAI/releases/tag/v0.1.0) · [Merged source](https://github.com/AceDataCloud/GPTImageCrewAI/commit/0eea3c3c57067d82680ba54680db29ddce08eb51). Tags and pages are informational; the immutable source SHA or wheel SHA256 binds the artifact. Historical previews remain unchanged and are not the recommended version. When an existing authorized PyPI publisher can publish after the shared new-project quota resets, the normal `uv add crewai-gpt-image` command will become available; do not assume publication before registry readback.
+[Stable release](https://github.com/AceDataCloud/GPTImageCrewAI/releases/tag/v0.1.0) · [Merged source](https://github.com/AceDataCloud/GPTImageCrewAI/commit/0eea3c3c57067d82680ba54680db29ddce08eb51). Tags and pages are informational; the immutable source SHA or wheel SHA256 binds the artifact. Historical previews remain unchanged and are not the recommended version. The PyPI wheel and source archive have the same SHA256 digests as these existing GitHub release assets. PyPI publication does not imply official CrewAI/AMP directory inclusion.
 
 CrewAI requires Python3.10–3.13. Complete Linux installation, tests and clean-wheel checks passed. Intel macOS may lack the mandatory lancedb wheel; use a supported Linux environment instead of skipping dependencies for production.
 
